@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:text="주문 내역 조회"
+		android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+	<ListView
+		android:id="@+id/orderListView"
+		android:layout_width="match_parent"
+		android:layout_height="234dp"
+		android:layout_weight="0.44">
+	</ListView>
+
+	<LinearLayout
+		android:id="@+id/linearLayout1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<Button
+			android:id="@+id/addButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="2"
+			android:text="추가 주문"/>
+
+		<Button
+			android:id="@+id/homeButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="2"
+			android:text="홈으로"/>
+	</LinearLayout>
+
+</LinearLayout>
