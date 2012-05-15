@@ -9,16 +9,16 @@ public class Shoes implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	private String name;
-	private String price;
+	private int price;
 	private String color;
 	private String size;
-	private String quantity;
+	private int quantity;
 
 	public Shoes() {
 
 	}
 
-	public Shoes(String name, String price, String color, String size, String quantity) {
+	public Shoes(String name, int price, String color, String size, int quantity) {
 		super();
 		this.price = price;
 		this.name = name;
@@ -35,11 +35,11 @@ public class Shoes implements Serializable{
 		this.color = color;
 	}
 
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
@@ -47,7 +47,7 @@ public class Shoes implements Serializable{
 		return size;
 	}
 
-	public void setNumber(String number) {
+	public void setNumber(int number) {
 		this.quantity = number;
 	}
 
@@ -55,11 +55,11 @@ public class Shoes implements Serializable{
 		this.size = size;
 	}
 
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
@@ -77,7 +77,7 @@ public class Shoes implements Serializable{
 		int result = 1;
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((price == null) ? 0 : price.hashCode());
+		result = prime * result + price;
 		result = prime * result + ((size == null) ? 0 : size.hashCode());
 		return result;
 	}
@@ -101,10 +101,7 @@ public class Shoes implements Serializable{
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (price == null) {
-			if (other.price != null)
-				return false;
-		} else if (!price.equals(other.price))
+		if (price != other.price)
 			return false;
 		if (size == null) {
 			if (other.size != null)

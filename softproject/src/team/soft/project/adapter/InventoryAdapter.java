@@ -69,10 +69,8 @@ public class InventoryAdapter extends BaseAdapter {
 		saleButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				Intent intent = new Intent(context, SaleActivity.class);
-				
 				intent.putExtra("sale", items.get(position));
 				context.startActivity(intent);
-				
 			}
 		});
 		return view;

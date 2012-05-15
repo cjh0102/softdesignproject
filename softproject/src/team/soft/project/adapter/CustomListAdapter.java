@@ -55,8 +55,8 @@ public class CustomListAdapter extends BaseAdapter {
 		nameTextView.setText("이름:" + items.get(index).getName());
 		colorTextView.setText("색깔:" + items.get(index).getColor());
 		sizeTextView.setText("사이즈:" + items.get(index).getSize());
-		priceTextView.setText("가격:" + items.get(index).getPrice());
-		quantityTextView.setText("수량:" + items.get(index).getQuantity());
+		priceTextView.setText("가격:" + Integer.toString(items.get(index).getPrice()));
+		quantityTextView.setText("수량:" + Integer.toString(items.get(index).getQuantity()));
 		
 		Button removeButton = (Button)view.findViewById(R.id.removeButton);
 		removeButton.setOnClickListener(new OnClickListener() {

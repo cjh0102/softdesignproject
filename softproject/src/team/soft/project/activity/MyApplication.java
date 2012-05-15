@@ -13,7 +13,7 @@ public class MyApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		totalShoes = new ArrayList<Shoes>();
-		totalShoes.add(new Shoes("nike", "200000", "Black", "265", "2"));
+		totalShoes.add(new Shoes("nike", 200000, "Black", "265", 2));
 		
 		orderShoes = new ArrayList<Shoes>();
 	}

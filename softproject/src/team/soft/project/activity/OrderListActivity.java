@@ -21,45 +21,13 @@ public class OrderListActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.orderlist);
 
-		Intent intent = getIntent();
-
 		List<Shoes> orderShoes = ((MyApplication)getApplication()).getOrderShoes();
 		CustomListAdapter adapter = new CustomListAdapter(this, R.layout.items_list_view, orderShoes); 
-
-
-		// 추가라는 메세지가 오면 
-		if (intent.getStringExtra("msg").equals("add")) {
-			Shoes shoes = (Shoes)intent.getSerializableExtra("shoes");
-			orderShoes.add(shoes);
-			adapter.notifyDataSetChanged();
-
-			// 주문받은 신발이 중복되는지 파악하기위한 객체
-			Shoes item = shoes;
-
-			// 신발 전체 리스트
-			List<Shoes> totalShoes = ((MyApplication)getApplication()).getTotalShoes();
-
-			// 물품 리스트에 같은 신발이 있으면 수량만 증가, 없으면 리스트에 추가
-			if (totalShoes.contains(item)) {
-				item = totalShoes.get(totalShoes.indexOf(item));
-				try {
-					String sum = Integer.toString((Integer.parseInt(item.getQuantity()) + Integer.parseInt(shoes.getQuantity())));
-					item.setQuantity(sum);
-				} catch (NumberFormatException e) {
-					Log.d("hwan", "NumberFormatException");
-				}
-			} else {
-					totalShoes.add(item);
-			}
-		} 
 		
-		if(!orderShoes.isEmpty()) {
+		if (!orderShoes.isEmpty()) {
 			ListView listView = (ListView)findViewById(R.id.orderListView);
 			listView.setAdapter(adapter);
-		} else {
-			Log.d("hwan", "orderShoes is empty");
 		}
-		
 		Button addButton = (Button)findViewById(R.id.addButton);
 		Button homeButton = (Button)findViewById(R.id.homeButton);
 
