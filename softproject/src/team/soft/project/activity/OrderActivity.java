@@ -1,5 +1,6 @@
 package team.soft.project.activity;
 
+import team.soft.project.model.Shoes;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -92,14 +93,12 @@ public class OrderActivity extends Activity {
 					Toast.makeText(OrderActivity.this, "1개이상 수량을 입력하세요", Toast.LENGTH_SHORT).show();
 				} else {
 
+					Shoes shoes = new Shoes(name, price, color, size, quantity);
 					Intent intent = new Intent(OrderActivity.this, OrderListActivity.class);
-
-					intent.putExtra("name", name);
-					intent.putExtra("color", color);
-					intent.putExtra("quantity", quantity);
-					intent.putExtra("size", size);
-					intent.putExtra("price", price);
-
+					
+					intent.putExtra("msg", "add");
+					intent.putExtra("shoes", shoes);
+					
 					OrderActivity.this.startActivity(intent);
 					OrderActivity.this.finish();
 				}
@@ -118,6 +117,7 @@ public class OrderActivity extends Activity {
 		orderListButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(OrderActivity.this, OrderListActivity.class);
+				intent.putExtra("msg", "null");
 				startActivity(intent);
 				finish();
 			}

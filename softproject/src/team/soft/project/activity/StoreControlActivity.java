@@ -21,13 +21,15 @@ public class StoreControlActivity extends TabActivity {
 		tabHost.addTab(tabHost.newTabSpec("tag2").
 				setIndicator("물품 검색")
 				.setContent(new Intent(this, SearchActivity.class)));
-
+		
 		Intent intent = getIntent();
 
 		String msg = intent.getStringExtra("msg");
-
-		if(msg.equals("add")) {
+		//
+		if (msg.equals("add")) {
 			tabHost.setCurrentTab(1);
+		} else if (msg.equals("home")) {
+			tabHost.setCurrentTab(0);
 		}
 	}
 }

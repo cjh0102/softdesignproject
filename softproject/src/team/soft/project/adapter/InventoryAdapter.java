@@ -5,9 +5,11 @@ import java.util.List;
 import team.soft.project.activity.R;
 import team.soft.project.activity.SaleActivity;
 import team.soft.project.model.Shoes;
+import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +50,7 @@ public class InventoryAdapter extends BaseAdapter {
 		if(view == null) {
 			view = layoutInflater.inflate(layoutId, null);
 		}
+		
 		final int position = index;
 		
 		TextView nameTextView = (TextView)view.findViewById(R.id.nameTextView);
@@ -66,8 +69,10 @@ public class InventoryAdapter extends BaseAdapter {
 		saleButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				Intent intent = new Intent(context, SaleActivity.class);
-				intent.putExtra("name", items.get(position).getName());
+				
+				intent.putExtra("sale", items.get(position));
 				context.startActivity(intent);
+				
 			}
 		});
 		return view;

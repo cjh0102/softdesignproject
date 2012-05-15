@@ -16,7 +16,9 @@ public class SaleActivity extends Activity {
 		setContentView(R.layout.sale);
 		
 		List<Shoes> totalShoes = ((MyApplication)getApplication()).getTotalShoes();
+		
 		Intent intent = getIntent();
+		Shoes shoes = intent.getExtras().getParcelable("sale");
 		
 	}
 }

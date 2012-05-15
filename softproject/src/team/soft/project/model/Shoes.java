@@ -1,20 +1,23 @@
 package team.soft.project.model;
 
+import java.io.Serializable;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Shoes implements Parcelable{
-
-	private String price;
-	private String size;
+public class Shoes implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	private String name;
-	private String quantity;
+	private String price;
 	private String color;
+	private String size;
+	private String quantity;
 
 	public Shoes() {
 
 	}
-	
+
 	public Shoes(String name, String price, String color, String size, String quantity) {
 		super();
 		this.price = price;
@@ -42,9 +45,6 @@ public class Shoes implements Parcelable{
 
 	public String getSize() {
 		return size;
-	}
-	public String getNumber() {
-		return quantity;
 	}
 
 	public void setNumber(String number) {
@@ -112,15 +112,5 @@ public class Shoes implements Parcelable{
 		} else if (!size.equals(other.size))
 			return false;
 		return true;
-	}
-
-	public int describeContents() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public void writeToParcel(Parcel dest, int flags) {
-		// TODO Auto-generated method stub
-		
 	}
 }
