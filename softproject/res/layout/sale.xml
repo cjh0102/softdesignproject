@@ -3,19 +3,85 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
-
-    <TextView
-    	android:id="@+id/textView1"
-    	android:layout_width="match_parent"
+	
+	<TextView
+    	android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
-    	android:text="Large Text"
+    	android:text="판매 정보 및 수량"
     	android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <TextView
-    	android:id="@+id/textView2"
+    	android:id="@+id/nameTextView"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="Medium Text"
+    	android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+    	android:id="@+id/sizeTextView"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
     	android:text="Medium Text"
     	android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+    	android:id="@+id/colorTextView"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:text="Medium Text"
+    	android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+    	android:id="@+id/priceTextView"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:text="Medium Text"
+    	android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+    	android:id="@+id/saleTextView"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:text="Medium Text"
+    	android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <LinearLayout
+    	android:id="@+id/linearLayout1"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content">
+
+        <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="판매할 수량:"
+        	android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <EditText
+        	android:id="@+id/saleEditTextView"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:inputType="number">
+
+        </EditText>
+
+    </LinearLayout>
+
+    <Button
+    	android:id="@+id/saleButton"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="판매"/>
+
+    <Button
+    	android:id="@+id/cancleButton"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="취소"/>
+    
+    <Button
+    	android:id="@+id/saleListButton"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="판매내역조회"/>
     
 </LinearLayout>

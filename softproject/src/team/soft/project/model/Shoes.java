@@ -26,7 +26,14 @@ public class Shoes implements Serializable{
 		this.quantity = quantity;
 		this.color = color;
 	}
-
+	public Shoes(Shoes shoes) {
+		this.price = shoes.getPrice();
+		this.name = shoes.getName();
+		this.size = shoes.getSize();
+		this.quantity = shoes.getQuantity();
+		this.color = shoes.getColor();
+		
+	}
 	public String getColor() {
 		return color;
 	}

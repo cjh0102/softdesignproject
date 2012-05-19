@@ -14,7 +14,7 @@ public class StoreControlActivity extends TabActivity {
 
 		tabHost.addTab(tabHost.newTabSpec("tag0")
 				.setIndicator("물품 리스트").
-				setContent(new Intent(this, InventoryActivity.class)));
+				setContent(new Intent(this, TotalListActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec("tag1")
 				.setIndicator("물품 주문")
 				.setContent(new Intent(this, OrderActivity.class)));
@@ -25,7 +25,7 @@ public class StoreControlActivity extends TabActivity {
 		Intent intent = getIntent();
 
 		String msg = intent.getStringExtra("msg");
-		//
+		
 		if (msg.equals("add")) {
 			tabHost.setCurrentTab(1);
 		} else if (msg.equals("home")) {

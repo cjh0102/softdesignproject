@@ -2,7 +2,7 @@ package team.soft.project.activity;
 
 import java.util.List;
 
-import team.soft.project.adapter.CustomListAdapter;
+import team.soft.project.adapter.OrderListAdapter;
 import team.soft.project.model.Shoes;
 import android.app.Activity;
 import android.content.Intent;
@@ -22,12 +22,14 @@ public class OrderListActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.orderlist);
 
 		List<Shoes> orderShoes = ((MyApplication)getApplication()).getOrderShoes();
-		CustomListAdapter adapter = new CustomListAdapter(this, R.layout.items_list_view, orderShoes); 
 		
+		OrderListAdapter adapter = new OrderListAdapter(this, R.layout.order_list_item, orderShoes); 
+
 		if (!orderShoes.isEmpty()) {
 			ListView listView = (ListView)findViewById(R.id.orderListView);
 			listView.setAdapter(adapter);
 		}
+		
 		Button addButton = (Button)findViewById(R.id.addButton);
 		Button homeButton = (Button)findViewById(R.id.homeButton);
 

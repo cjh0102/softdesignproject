@@ -4,7 +4,7 @@
 	android:versionCode="1"
 	android:versionName="1.0">
 
-	<uses-sdk android:minSdkVersion="10"/>
+	<uses-sdk android:minSdkVersion="8"/>
 
 	<application
 		android:icon="@drawable/ic_launcher"
@@ -21,9 +21,10 @@
 		<activity android:name=".SearchActivity"></activity>
 		<activity android:name=".OrderActivity"></activity>
 		<activity android:name="OrderListActivity"></activity>
-		<activity android:name="InventoryActivity"></activity>
+		<activity android:name=".TotalListActivity"></activity>
 		<activity android:name="StoreControlActivity"></activity>
 		<activity android:name="SaleActivity"></activity>
+		<activity android:name="SaleListActivity"></activity>
 	</application>
 
 </manifest>

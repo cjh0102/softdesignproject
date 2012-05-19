@@ -3,30 +3,25 @@ package team.soft.project.adapter;
 import java.util.List;
 
 import team.soft.project.activity.R;
-import team.soft.project.activity.SaleActivity;
 import team.soft.project.model.Shoes;
-import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-public class InventoryAdapter extends BaseAdapter {
-
+public class OrderListAdapter extends BaseAdapter {
 	private Context context;
 	private LayoutInflater layoutInflater;
 	private int layoutId;
 	private List<Shoes> items;
 	
-	public InventoryAdapter(Context context, int layoutID, List<Shoes> items) {
+	public OrderListAdapter(Context context, int layoutID, List<Shoes> items) {
 		super();
 		this.context = context;
 		this.layoutId = layoutID;
@@ -50,29 +45,31 @@ public class InventoryAdapter extends BaseAdapter {
 		if(view == null) {
 			view = layoutInflater.inflate(layoutId, null);
 		}
-		
 		final int position = index;
 		
 		TextView nameTextView = (TextView)view.findViewById(R.id.nameTextView);
 		TextView colorTextView = (TextView)view.findViewById(R.id.colorTextView);
 		TextView sizeTextView = (TextView)view.findViewById(R.id.sizeTextView);
 		TextView priceTextView = (TextView)view.findViewById(R.id.priceTextView);
-		TextView quantityTextView = (TextView)view.findViewById(R.id.quantitytextView);
+		TextView quantityTextView = (TextView)view.findViewById(R.id.quantityTextView);
 		
 		nameTextView.setText("이름:" + items.get(index).getName());
 		colorTextView.setText("색깔:" + items.get(index).getColor());
 		sizeTextView.setText("사이즈:" + items.get(index).getSize());
-		priceTextView.setText("가격:" + items.get(index).getPrice());
-		quantityTextView.setText("수량:" + items.get(index).getQuantity());
+		priceTextView.setText("가격:" + Integer.toString(items.get(index).getPrice()));
+		quantityTextView.setText("주문 수량:" + Integer.toString(items.get(index).getQuantity()));
 		
-		Button saleButton = (Button)view.findViewById(R.id.saleButton);
-		saleButton.setOnClickListener(new OnClickListener() {
+		Log.d("주문수량", Integer.toString(items.get(index).getQuantity()));
+		
+		
+		Button removeButton = (Button)view.findViewById(R.id.removeButton);
+		removeButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
-				Intent intent = new Intent(context, SaleActivity.class);
-				intent.putExtra("sale", items.get(position));
-				context.startActivity(intent);
+				items.remove(position);
+				notifyDataSetChanged();
 			}
 		});
+		
 		return view;
 	}
 }

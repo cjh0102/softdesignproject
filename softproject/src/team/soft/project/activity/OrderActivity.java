@@ -18,6 +18,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class OrderActivity extends Activity {
+	
 	private EditText nameEditText;
 	private EditText quantityEditText;
 	private EditText priceEditText;
@@ -27,7 +28,7 @@ public class OrderActivity extends Activity {
 
 	private String color;
 	private String size;
-
+	
 	private String[] sizes = new String[]{"240", "245", "250",
 			"255", "260", "265", "270", "275", "280", 
 			"285", "290", "300", "310", "320", "330"};
@@ -38,13 +39,14 @@ public class OrderActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.order);
-
+		
 		nameEditText = (EditText)findViewById(R.id.nameEdtiText);
 		priceEditText = (EditText)findViewById(R.id.priceEditTextView);
 		quantityEditText = (EditText)findViewById(R.id.quantityEditTextView);
 		Button addButton = (Button)findViewById(R.id.addButton);
 		Button cancleButton = (Button)findViewById(R.id.cancleButton);
-
+		
+		// Size Spinner
 		sizeSpinner = (Spinner)findViewById(R.id.sizeSpinner);
 		ArrayAdapter<String> sizeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sizes);
 		sizeSpinner.setPrompt("사이즈를 선택하세요");
@@ -60,7 +62,8 @@ public class OrderActivity extends Activity {
 			public void onNothingSelected(AdapterView<?> arg0) {
 			}
 		});
-
+		
+		// Color Spinner
 		colorSpinner = (Spinner)findViewById(R.id.colorSpinner);
 		ArrayAdapter<String> colorAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, colors);
 		colorSpinner.setPrompt("색깔을 선택하세요");
@@ -76,11 +79,11 @@ public class OrderActivity extends Activity {
 				Toast.makeText(OrderActivity.this, "색깔선택 해주세요!!", Toast.LENGTH_SHORT).show();
 			}
 		});
-		
+
 		addButton.setOnClickListener(new OnClickListener() {
 			int quantity;
 			int price;
-			
+
 			public void onClick(View arg0) {
 				String name = nameEditText.getText().toString();
 				try {
@@ -102,18 +105,28 @@ public class OrderActivity extends Activity {
 				} else {
 
 					Shoes shoes = new Shoes(name, price, color, size, quantity);
+					
+					List<Shoes> orderList = ((MyApplication)getApplication()).getOrderShoes();
+					List<Shoes> totalList = ((MyApplication)getApplication()).getTotalShoes();
+					
+					if (totalList.contains(shoes)) {
+						
+						Shoes item = totalList.get(totalList.indexOf(shoes));
+						totalList.remove(item);
+						
+						item.setQuantity(item.getQuantity() + quantity);
+						totalList.add(item);
+						
+						Shoes orderShoes = new Shoes(item);
+						orderShoes.setQuantity(quantity);
+						orderList.add(orderShoes);
 
-					List<Shoes> orderShoes = ((MyApplication)getApplication()).getOrderShoes();
-					orderShoes.add(shoes);
-
-					List<Shoes> totalShoes = ((MyApplication)getApplication()).getTotalShoes();
-
-					if (totalShoes.contains(shoes)) {
-						Shoes item = totalShoes.get(totalShoes.indexOf(shoes));
-						int sum = item.getQuantity() + shoes.getQuantity();
-						item.setQuantity(sum);
 					} else {
-						totalShoes.add(shoes);
+						Shoes orderShoes = new Shoes(shoes);
+						orderList.add(orderShoes);
+						
+						Shoes newShoes = new Shoes(shoes);
+						totalList.add(newShoes);
 					}
 
 					Intent intent = new Intent(OrderActivity.this, OrderListActivity.class);
