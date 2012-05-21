@@ -111,22 +111,17 @@ public class OrderActivity extends Activity {
 					
 					if (totalList.contains(shoes)) {
 						
-						Shoes item = totalList.get(totalList.indexOf(shoes));
-						totalList.remove(item);
+						shoes.setQuantity(totalList.get(totalList.indexOf(shoes)).getQuantity() + quantity);
+						totalList.remove(shoes);
+						totalList.add(shoes);
 						
-						item.setQuantity(item.getQuantity() + quantity);
-						totalList.add(item);
-						
-						Shoes orderShoes = new Shoes(item);
+						Shoes orderShoes = new Shoes(shoes);
 						orderShoes.setQuantity(quantity);
 						orderList.add(orderShoes);
 
 					} else {
-						Shoes orderShoes = new Shoes(shoes);
-						orderList.add(orderShoes);
-						
-						Shoes newShoes = new Shoes(shoes);
-						totalList.add(newShoes);
+						orderList.add(new Shoes(shoes));
+						totalList.add(new Shoes(shoes));
 					}
 
 					Intent intent = new Intent(OrderActivity.this, OrderListActivity.class);
