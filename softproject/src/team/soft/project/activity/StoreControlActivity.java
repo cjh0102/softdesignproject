@@ -22,6 +22,10 @@ public class StoreControlActivity extends TabActivity {
 				setIndicator("물품 검색")
 				.setContent(new Intent(this, SearchActivity.class)));
 		
+		tabHost.addTab(tabHost.newTabSpec("tag3").
+				setIndicator("매출 내역")
+				.setContent(new Intent(this, SaleHistoryActivity.class)));
+		
 		Intent intent = getIntent();
 
 		String msg = intent.getStringExtra("msg");
