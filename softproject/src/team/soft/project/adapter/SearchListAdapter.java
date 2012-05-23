@@ -56,7 +56,7 @@ public class SearchListAdapter extends BaseAdapter {
 		TextView priceTextView = (TextView)view.findViewById(R.id.priceTextView);
 		TextView quantitytextView = (TextView)view.findViewById(R.id.quantitytextView);
 		
-		nameTextView.setText("이름:" + items.get(index).getName());
+		nameTextView.setText(items.get(index).getName());
 		colorTextView.setText("색깔:" + items.get(index).getColor());
 		sizeTextView.setText("사이즈:" + items.get(index).getSize());
 		priceTextView.setText("가격:" + items.get(index).getPrice());

@@ -92,7 +92,7 @@ public class OrderActivity extends Activity {
 					quantity = Integer.parseInt(quantityEditText.getText().toString());
 
 				} catch (NumberFormatException e) {
-					Log.d("hwan", Integer.toString(price));
+					Log.d("NumberFormatException", Integer.toString(price));
 				}
 
 				if (name.length() == 0) {

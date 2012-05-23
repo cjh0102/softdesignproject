@@ -3,6 +3,47 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
-	
+
+	<TextView
+		android:id="@+id/textView1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:text="매출 내역 조회"
+		android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+	<RelativeLayout
+		android:id="@+id/linearLayout1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="0.33"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/moneyTextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="30dp"
+			android:text="Medium Text"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+	</RelativeLayout>
+
+	<LinearLayout
+		android:id="@+id/linearLayout2"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1.27"
+		android:orientation="vertical">
+
+		<ListView
+			android:id="@+id/saleListView"
+			android:layout_width="match_parent"
+			android:layout_height="170dp"
+			android:layout_weight="0.15">
+		</ListView>
+	</LinearLayout>
 
 </LinearLayout>

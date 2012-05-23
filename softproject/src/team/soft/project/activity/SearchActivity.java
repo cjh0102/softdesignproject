@@ -36,7 +36,11 @@ public class SearchActivity extends Activity {
 					for (Shoes shoes : totalList) {
 						if (shoes.getName().equals(name)) {
 							searchList.add(new Shoes(shoes));
-						} 
+						} else {
+							Toast.makeText(SearchActivity.this, "물품이없습니다", Toast.LENGTH_SHORT).show();
+							
+							
+						}
 					}
 				} else {
 					Toast.makeText(SearchActivity.this, "물품이없습니다", Toast.LENGTH_SHORT).show();
