@@ -15,7 +15,6 @@ public class MyApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		totalShoes = new ArrayList<Shoes>();
-		totalShoes.add(new Shoes("nike", 200000, "Black", "265", 100));
 		totalShoes.add(new Shoes("에어플렉스", 79000, "White", "265", 66));
 		totalShoes.add(new Shoes("프리트레이너", 119000, "White", "265", 80));
 		totalShoes.add(new Shoes("프리런3", 129000, "Yellow", "270", 129));

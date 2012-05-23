@@ -33,7 +33,8 @@ public class OrderActivity extends Activity {
 			"255", "260", "265", "270", "275", "280", 
 			"285", "290", "300", "310", "320", "330"};
 	private String[] colors = new String[]{"Black", "White", 
-			"Blue", "Red", "Green", "Puple", "Naby"};
+			"Blue", "Red", "Green", "Gray", "Yellow", "Puple"
+			, "Naby", "Peach", "Orange"};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
